@@ -1,13 +1,14 @@
 /* jeffgliick.github.io: shared styles */
 
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap");
+
 :root {
   --gold: #f4c871;
   --text: #e9e7df;
   --muted: #a19f94;
   --panel: rgba(8, 8, 8, 0.72);
   --edge: rgba(255, 255, 255, 0.1);
-  /* Swap this line when the nav font is chosen */
-  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Prompt", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -81,7 +82,7 @@ nav ul {
 nav a {
   color: var(--gold);
   text-decoration: none;
-  font-size: clamp(1.1rem, 2.3vw, 1.8rem);
+  font-size: clamp(1rem, 2vw, 1.55rem);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
