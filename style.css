@@ -1,101 +1,173 @@
+/* jeffgliick.github.io: shared styles */
+
 :root {
-  --bg: #141414;
-  --plate: #232323;
-  --plate-edge: #3a3a36;
-  --text: #e8e8e0;
-  --muted: #a8a89c;
-  --accent: #f2c200;
+  --gold: #f4c871;
+  --text: #e9e7df;
+  --muted: #a19f94;
+  --panel: rgba(8, 8, 8, 0.72);
+  --edge: rgba(255, 255, 255, 0.1);
+  /* Swap this line when the nav font is chosen */
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
 
+html { background: #000; }
+
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000 url("images/mesh-mid.webp") center top repeat-y;
   color: var(--text);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font);
   line-height: 1.6;
 }
 
-.bar {
-  height: 14px;
-  background: repeating-linear-gradient(
-    -45deg, var(--accent) 0 14px, var(--bg) 14px 28px);
-}
-
-header, main, footer {
-  max-width: 960px;
+.wrap {
+  width: min(1266px, 92%);
   margin: 0 auto;
-  padding: 24px;
 }
 
-nav {
+/* ---------- header ---------- */
+
+.site-header {
+  position: relative;
+  min-height: 112px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  background: #000 url("images/mesh-top.webp") center top no-repeat;
+}
+
+.site-header .wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+/* the yellow hazard rule sits on the bottom edge of the header ... */
+.site-header::after,
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: min(1266px, 92%);
+  height: 14px;
+  transform: translateX(-50%);
+  background: url("images/hazard-line.png") center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+.site-header::after { bottom: -7px; }
+/* ... and the top edge of the footer */
+.site-footer::before { top: -7px; }
+
+.brand img { display: block; width: 170px; height: auto; }
+
+nav { margin-left: auto; }
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px clamp(1rem, 3vw, 2.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav a {
-  color: var(--text);
+  color: var(--gold);
   text-decoration: none;
-  font-family: Impact, "Arial Narrow Bold", sans-serif;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: clamp(1.1rem, 2.3vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
-nav a:hover, nav a[aria-current="page"] {
-  color: var(--accent);
+nav a:hover,
+nav a[aria-current="page"] { color: #fff; }
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
 }
 
-h1 {
-  font-family: Impact, "Arial Narrow Bold", sans-serif;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 6vw, 3rem);
-  margin: 0 0 8px;
+/* ---------- content ---------- */
+
+main {
+  flex: 1;
+  padding: 48px 0 64px;
+  min-height: 560px;
 }
 
-h2 { margin: 0 0 8px; }
+.hero-logo { margin: clamp(24px, 7vh, 72px) 0 0; }
+.hero-logo img { display: block; width: min(545px, 100%); height: auto; }
 
-.lead { color: var(--muted); max-width: 60ch; }
+h1.page-title {
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+h2 { margin: 0 0 8px; font-size: 1.5rem; font-weight: 500; }
+
+.lead { max-width: 62ch; color: var(--muted); font-size: 1.1rem; }
+.note { margin-top: 28px; color: var(--muted); }
+
+/* ---------- game / project plates ---------- */
 
 .grid {
   display: grid;
-  gap: 24px;
+  gap: 28px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: 32px;
+  margin-top: 36px;
 }
 
 .plate {
-  background: var(--plate);
-  border: 1px solid var(--plate-edge);
-  border-top: 4px solid var(--accent);
   padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-top: 3px solid var(--gold);
 }
 
 .shot {
-  aspect-ratio: 16 / 9;
-  background: #2e2e2b;
   display: grid;
   place-items: center;
-  color: var(--muted);
+  aspect-ratio: 16 / 9;
   margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
 }
 
 .btn {
   display: inline-block;
-  padding: 8px 16px;
   margin: 8px 8px 0 0;
-  background: var(--accent);
-  color: var(--bg);
+  padding: 8px 18px;
+  background: var(--gold);
+  color: #111;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
+}
+.btn.alt { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 6px 16px; }
+.btn.off { opacity: 0.4; cursor: default; }
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  position: relative;
+  min-height: 150px;
+  padding: 36px 0 24px;
+  background: #000 url("images/mesh-bottom.webp") center bottom no-repeat;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
-.btn.alt {
-  background: transparent;
-  color: var(--accent);
-  border: 2px solid var(--accent);
+@media (max-width: 640px) {
+  .site-header .wrap { justify-content: center; }
+  nav { margin: 0; width: 100%; }
+  nav ul { justify-content: space-between; }
+  main { padding-top: 32px; }
 }
-
-footer { color: var(--muted); font-size: 0.9rem; }

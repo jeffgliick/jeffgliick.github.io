@@ -4,40 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Games | Jeff Gliick</title>
+  <meta name="description" content="Games by Jeff Gliick, built in Python with Pygame.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bar"></div>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="games.html" aria-current="page">Games</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" width="570" height="173" alt="Jeff Gliick, home"></a>
+      <nav aria-label="Main">
+      <ul>
+        <li><a href="about.html">about</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="art.html">art</a></li>
+        <li><a href="games.html" aria-current="page">games</a></li>
+      </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h1>Games</h1>
-    <p class="lead">Two games I built in Python with Pygame, with AI assistance. Each one has a short write-up of what I changed and learned.</p>
-
-    <div class="grid">
-      <article class="plate">
-        <div class="shot">Screenshot coming soon</div>
-        <h2>Game One</h2>
-        <p>A short description of the game goes here.</p>
-        <a class="btn" href="#">Play</a>
-        <a class="btn alt" href="#">Source code</a>
-      </article>
-
-      <article class="plate">
-        <div class="shot">Screenshot coming soon</div>
-        <h2>Game Two</h2>
-        <p>A short description of the game goes here.</p>
-        <a class="btn" href="#">Play</a>
-        <a class="btn alt" href="#">Source code</a>
-      </article>
+    <div class="wrap">
+      <h1 class="page-title">games</h1>
+      <p class="lead">Two games I built in Python with Pygame, with AI assistance. Each one will have a short write-up of what I changed and what I learned.</p>
+      <div class="grid">
+        <article class="plate">
+          <div class="shot">Screenshot coming soon</div>
+          <h2>Game One</h2>
+          <p>A short description of the game goes here.</p>
+          <span class="btn off" aria-disabled="true">Play</span>
+          <span class="btn alt off" aria-disabled="true">Source code</span>
+        </article>
+        <article class="plate">
+          <div class="shot">Screenshot coming soon</div>
+          <h2>Game Two</h2>
+          <p>A short description of the game goes here.</p>
+          <span class="btn off" aria-disabled="true">Play</span>
+          <span class="btn alt off" aria-disabled="true">Source code</span>
+        </article>
+      </div>
     </div>
   </main>
 
-  <footer>© Jeff Gliick</footer>
+  <footer class="site-footer">
+    <div class="wrap">&copy; Jeff Gliick</div>
+  </footer>
 </body>
 </html>
